@@ -1,16 +1,49 @@
-# React + Vite
+# atividade-web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida com React e Vite como atividade prática de desenvolvimento front-end.
 
-Currently, two official plugins are available:
+## Sobre
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A página exibe dois painéis lado a lado, um escuro e um claro com um botão central que inverte as cores de ambos os lados com uma animação suave. Cada painel exibe um ícone e um texto que também transitam junto com a mudança de tema.
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite 8
+- CSS com transições e variáveis customizadas
 
-## Expanding the ESLint configuration
+## Como rodar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/Saatake/atividade-web.git
+cd atividade-web
+npm install
+```
+
+Inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Acesse em `http://localhost:5173`.
+
+## Build
+
+Para gerar a versão de produção:
+
+```bash
+npm run build
+```
+
+## Estrutura
+
+```
+src/
+  App.jsx
+  pages/
+    MainPage.jsx
+    MainPage.css
+```

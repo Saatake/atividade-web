@@ -223,12 +223,12 @@ html, body, #root {
 /* controle da animação dos ícones */
 .icon-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1) rotate(0deg);
   transition: opacity 350ms ease, transform 350ms ease;
 }
 
 .icon-hidden {
   opacity: 0;
-  transform: scale(0.6);
+  transform: scale(0.6) rotate(180deg);
   transition: opacity 350ms ease, transform 350ms ease;
-} 
+}
