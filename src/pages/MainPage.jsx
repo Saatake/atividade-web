@@ -9,11 +9,12 @@ export default function SplitPage() {
       {/* Lado escuro */}
       <div className="panel panel-dark">
         <div className="panel-content">
+          <span className="panel-icon">🌙</span>
           <span className="label">escuro</span>
           <p className="panel-text">
-            O silêncio tem
+            O silêncio pesa,
             <br />
-            uma cor.
+            a sombra descansa.
           </p>
         </div>
       </div>
@@ -32,11 +33,12 @@ export default function SplitPage() {
       {/* Lado claro */}
       <div className="panel panel-light">
         <div className="panel-content">
+          <span className="panel-icon">☀️</span>
           <span className="label">claro</span>
           <p className="panel-text">
-            A luz também
+            A luz se derrama,
             <br />
-            faz barulho.
+            o mundo desperta.
           </p>
         </div>
       </div>
