@@ -45,9 +45,12 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   transition:
     background-color var(--duration) var(--ease),
     color var(--duration) var(--ease);
+  will-change: background-color, color;
+   
 }
 
 .panel-dark {
@@ -78,20 +81,6 @@ html, body, #root {
   gap: 1.5rem;
   padding: 3rem;
   user-select: none;
-}
-
-/* ── Ícone sol / lua ────────────────────────────── */
-.panel-icon {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  display: inline-block;
-  transition:
-    transform var(--duration) var(--ease),
-    opacity var(--duration) var(--ease);
-  transform-origin: center;
-}
-
-.inverted .panel-icon {
-  transform: rotate(360deg) scale(1.15);
 }
 
 .label {
@@ -144,6 +133,9 @@ html, body, #root {
   box-shadow:
     0 0 0 6px rgba(255, 255, 255, 0.06),
     0 4px 20px rgba(0, 0, 0, 0.5);
+  
+  will-change: transform, background-color, box-shadow, border-color;
+  transform: translateZ(0);  
 }
 
 .inverted .toggle-btn {
@@ -220,15 +212,48 @@ html, body, #root {
   }
 }
 
-/* controle da animação dos ícones */
-.icon-visible {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-  transition: opacity 350ms ease, transform 350ms ease;
+/* novas animações / ícones */
+.icon-wrapper {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.5rem;
+  width: clamp(2rem, 4vw, 3rem);
+  height: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-.icon-hidden {
-  opacity: 0;
-  transform: scale(0.6) rotate(180deg);
-  transition: opacity 350ms ease, transform 350ms ease;
+.svg-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
+
+.icon-wrapper > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, background-color, box-shadow, border-color;
+  transform: translateZ(0);
+  transition: opacity var(--duration) var(--ease), 
+              transform var(--duration) var(--ease);
+}
+
+.panel-dark .icon-moon { opacity: 1; transform: scale(1) rotate(0deg); }
+.panel-dark .icon-sun { opacity: 0; transform: scale(0.5) rotate(-90deg); }
+
+.inverted .panel-dark .icon-moon { opacity: 0; transform: scale(0.5) rotate(90deg); }
+.inverted .panel-dark .icon-sun { opacity: 1; transform: scale(1) rotate(0deg); }
+
+.panel-light .icon-sun { opacity: 1; transform: scale(1) rotate(0deg); }
+.panel-light .icon-moon { opacity: 0; transform: scale(0.5) rotate(-90deg); }
+
+.inverted .panel-light .icon-sun { opacity: 0; transform: scale(0.5) rotate(90deg); }
+.inverted .panel-light .icon-moon { opacity: 1; transform: scale(1) rotate(0deg); }
